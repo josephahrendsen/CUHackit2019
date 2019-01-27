@@ -57,7 +57,7 @@ class InputUsernameVC: UIViewController {
 			}
 			for phrase in snapshot.children.allObjects as! [DataSnapshot] {
 				self.phrase = phrase.key
-				self.occurances = phrase.value as? Int
+				self.occurances = Int(phrase.value as! String)
 			}
 		}
 		

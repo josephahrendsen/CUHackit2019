@@ -25,6 +25,7 @@ class GameOverVC: UIViewController {
 		lblPhrase.layer.format()
 		lblFinalScore.layer.format()
 		
+		lblPhrase.text = phrase
 		lblUserScore.text = String(userScore ?? 0)
 		lblExpectedScore.text = String(expectedScore ?? 0)
 

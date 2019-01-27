@@ -8,12 +8,14 @@ function createNewClass() {
 
     var classNameString = document.getElementById("class").value;
     var phraseNameString = document.getElementById("phrase").value;
+    var occuranceInt = document.getElementById("occurance").value;
+
     var code = newClassRef.key;    
     console.log(code)
     newClassRef.set({
         className: classNameString,
         Phrase:{
-            phraseName: phraseNameString
+            [document.getElementById("phrase").value] : occuranceInt
         }
     });
     alert("Success\nClass created successfully, your code is: "+ code+"\nPrint the following page.");
