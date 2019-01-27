@@ -153,6 +153,7 @@ class JoinClassVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
 		lblTitle.text = "Loading class code..."
 		
 		rekognitionObject   = AWSRekognition.default()
+		
 		let request         = AWSRekognitionDetectTextRequest.init()
 		let codeImageAWS    = AWSRekognitionImage()
 		codeImageAWS?.bytes = fromImageData
