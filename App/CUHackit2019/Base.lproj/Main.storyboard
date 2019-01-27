@@ -13,7 +13,7 @@
         <!--Join ClassVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ClassVC" id="BYZ-38-t0r" customClass="JoinClassVC" customModule="CUHackit2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinClassVC" id="BYZ-38-t0r" customClass="JoinClassVC" customModule="CUHackit2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,7 +413,4 @@
             <point key="canvasLocation" x="3463.7681159420295" y="114.50892857142857"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GuH-EV-QjG"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -23,4 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		return true
 	}
+	
+	func applicationDidEnterBackground(_ application: UIApplication) {
+		let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "JoinClassVC")
+		self.window?.rootViewController = rootController
+	}
 }
