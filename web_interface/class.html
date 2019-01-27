@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link href="bootstrap.min.css" />
+    <br>
+    <br>
+    <title>Helm</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC6gkCdkP2RTs5KDuEf6nFS4GMlcM2_ADE",
+            authDomain: "cuhackit-5f237.firebaseapp.com",
+            databaseURL: "https://cuhackit-5f237.firebaseio.com",
+            projectId: "cuhackit-5f237",
+            storageBucket: "cuhackit-5f237.appspot.com",
+            messagingSenderId: "156127426619"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body>
+        <h1>Create a Helm class</h1>
+        <div action = "class.html" method = "GET" class="login-page">
+            <div class="form">
+                <form class="qr-form" action="app.html" method="GET">
+                    <input id="class" type="text" placeholder="Class name" />
+                    <input id="phrase" type="text" placeholder="Phrase" />
+                    <input id="occurance" type="text" placeholder="Occurances" />
+                    <button id='createNewClass4' onclick="createNewClass()" type="button">Create</button>
+                    <input type="hidden" name="varname" value="12345" />
+                </form>
+            </div>
+        </div>
+    <script>
+        var database = firebase.database();
+
+        function createNewClass() {
+            var classRef    = database.ref().child('Classes');
+            var newClassRef = classRef.push();
+
+            var classNameString  = document.getElementById("class").value;
+            var occuranceInt     = document.getElementById("occurance").value;
+
+            var code = newClassRef.key;
+            newClassRef.set({
+                className: classNameString,
+                Phrase: {
+                    [document.getElementById("phrase").value]: occuranceInt
+                }
+            });
+            alert("Success\nClass created successfully, your code is: " + code + "\nPrint the following page.");
+            window.location.href = "print.html";
+        }
+
+        function errData(err) {
+            console.log("Error");
+            console.log(err);
+        }
+    </script>
+</body>
+
+</html>
