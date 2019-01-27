@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+        var config = {
+        apiKey: "AIzaSyC6gkCdkP2RTs5KDuEf6nFS4GMlcM2_ADE",
+        authDomain: "cuhackit-5f237.firebaseapp.com",
+        databaseURL: "https://cuhackit-5f237.firebaseio.com",
+        projectId: "cuhackit-5f237",
+        storageBucket: "cuhackit-5f237.appspot.com",
+        messagingSenderId: "156127426619"
+    };
+    firebase.initializeApp(config);
+    </script>
+</head>
 <body>
     <h1> Class Code: </h1>
+    <br><br><br>
+    <h2 style="font-size:70px" text-align:center>
+    <script>
+        var database = firebase.database();
+        var classRef = database.ref().child('Classes');
+        var url = window.location.href; 
+        var code = url.substring(url.indexOf('=') + 1);
+        document.write(code);
+        
+    </script>
+    </h2>
 </body>

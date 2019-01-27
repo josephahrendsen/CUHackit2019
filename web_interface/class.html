@@ -30,7 +30,8 @@
                 <form class="qr-form" action="app.html" method="GET">
                     <input id="class" type="text" placeholder="Class name" />
                     <input id="phrase" type="text" placeholder="Phrase" />
-                    <input id="occurance" type="text" placeholder="Occurances" />
+                    <input id="occurance" type="text" placeholder="Occurances"/>
+                    <input id="teacher-code" type="text" placeHolder="Enter code (Optional)"/>
                     <button id='createNewClass4' onclick="createNewClass()" type="button">Create</button>
                     <input type="hidden" name="varname" value="12345" />
                 </form>
@@ -40,21 +41,27 @@
         var database = firebase.database();
 
         function createNewClass() {
-            var classRef    = database.ref().child('Classes');
-            var newClassRef = classRef.push();
-
             var classNameString  = document.getElementById("class").value;
             var occuranceInt     = document.getElementById("occurance").value;
+            var teacherCode      = document.getElementById("teacher-code").value;
 
-            var code = newClassRef.key;
-            newClassRef.set({
+            var classRef    = database.ref().child('Classes').child(teacherCode);
+
+            var code = classRef.key;
+            if(classNameString!=null && occuranceInt!=null && teacherCode!=null) {
+                code = teacherCode;
+            } else if(teacherCode!=null && (classNameString==null || occuranceInt==null)) {
+                alert("If manually entering code, all fields must be filled out");
+            }
+            
+            classRef.set({
                 className: classNameString,
                 Phrase: {
                     [document.getElementById("phrase").value]: occuranceInt
                 }
             });
             alert("Success\nClass created successfully, your code is: " + code + "\nPrint the following page.");
-            window.location.href = "print.html";
+            window.location.href = "print.html" + "?=" + code;
         }
 
         function errData(err) {
