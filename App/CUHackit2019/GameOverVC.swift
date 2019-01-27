@@ -21,9 +21,12 @@ class GameOverVC: UIViewController {
 	@IBOutlet var lblExpectedScore: UILabel!
 	
 	override func viewDidLoad() {
+		btnDone.layer.format()
+		lblPhrase.layer.format()
+		lblFinalScore.layer.format()
+		
 		lblUserScore.text = String(userScore ?? 0)
 		lblExpectedScore.text = String(expectedScore ?? 0)
-		
 
 		let difference = abs((userScore ?? 0) - (expectedScore ?? 0))
 		lblFinalScore.text = String((userScore ?? 0) - Int(difference))
